@@ -1,8 +1,74 @@
+.title-container {
+    text-align: center;
+}
+
+.title1 {
+    position: relative;
+    right: 7rem;
+    top: 2rem;
+    font-size: 4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(64, 110, 63);
+    -webkit-text-stroke: 1px solid rgb(38, 61, 41);
+    animation: title1animation 1s;
+}
+
+.title2 {
+    position: relative;
+    left: 3rem;
+    bottom: 1rem;
+    font-size: 7rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    /* color: rgb(232, 231, 227); */
+    color: transparent;
+    background: rgb(9,9,121);
+    background: linear-gradient(45deg, #1c4966 34%, rgba(64,110,63,1) 63%);
+    background-clip: text;
+    animation: title2animation1 1.5s, title2animation2 10s infinite alternate;
+}
+
+@keyframes title1animation {
+    0% {
+        top: -2rem;
+        opacity: 0%;
+    }
+    100% {
+        top: 2rem;
+        opacity: 100%
+    }
+}
+
+@keyframes title2animation1 {
+    0% {
+        top: -5rem;
+        opacity: 0%;
+    }
+    33% {
+        top: -5rem;
+        opacity: 0%;
+    }
+    100% {
+        top: -1rem;
+        opacity: 100%
+    }
+}
+
+@keyframes title2animation2 {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
 .card-container{
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin: 3rem;
+    overflow-y: auto;
 }
 
 .card {
@@ -15,18 +81,51 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #d42e12;
+    /* color: #d42e12; */
+    color: rgb(64, 110, 63);
     border: 1px solid #eee;
     background-color: #fafafa;
-    transition-duration: 0.2s;
+    transition-duration: 0.5s;
     transition-property: all;
     margin: 2rem;
 }
+
+.card-title {
+    position: relative;
+    bottom: 0rem;
+    transition: all 0.5s ease;
+    font-size: 1.5rem;
+}
+
+.card-content {
+    display: block;
+    text-align: center;
+}
+
+.card-description {
+    height: 0px;
+    overflow: hidden;
+    color: transparent;
+    bottom: -3rem;
+    transition: all 0.5s ease-out;
+}
+
+
+.card:hover .card-content .card-description {
+    height: 100%;
+    color: #fafafa;
+    bottom: 0rem;
+}
+
+.card:hover .card-content .card-title {
+    bottom: 3rem;
+}
+
 .card:hover {
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
-    border: 1px solid #d42e12;
+    background-color: rgb(64, 110, 63);
+    border: 1px solid rgb(38, 61, 41);
     color: #fafafa;
-    background-color: #d42e12;
 }
 
 .content {

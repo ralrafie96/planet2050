@@ -15,10 +15,12 @@
     <div [ngClass]="{'modal-on': showModal, 'modal-off': !showModal}">
     <div class="modal-content">
         <span class="close" (click)="showModal = false">&times;</span>
-        <form class="form" [formGroup]="languageForm" (ngSubmit)="submitClicked(languageForm.value)">
-            <p>Please Select a Language:</p>
-            <input type="radio" id="language" formControlName="language" value="English"> English
-            <input type="radio" id="language" formControlName="language" value="Spanish"> Spanish
+        <form [formGroup]="languageForm" (ngSubmit)="submitClicked(languageForm.value)">
+            <div class="form">
+            <p class="modal-title">Please Select a Language:</p>
+                <input type="radio" id="language" formControlName="language" value="English"> English
+                <input type="radio" id="language" formControlName="language" value="Spanish"> Spanish
+            </div>
             <button class="sub-btn">Submit</button>
         </form>
     </div>

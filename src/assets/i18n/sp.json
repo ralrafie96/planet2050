@@ -5,6 +5,12 @@
       "SIDE3": "TRIVIALIDADES",
       "SIDE4": "MÚLTIPLES IDIOMAS"
     },
+    "HOME": {
+        "WELCOME": "Bienvenido a",
+        "DESC1": "¿Crees que tienes las habilidades? ¡Tome la prueba Planet2050 para ver qué tan inteligente es con el medio ambiente!",
+        "DESC2": "¡Ponte al día con todas las habilidades que necesitas saber para mantener nuestro planeta seguro!",
+        "DESC3": "¡Cambie el idioma de la aplicación a uno con el que esté más familiarizado!"
+    },
     "QUIZ": {
         "HOME1": "Haz la",
         "HOME2": "Prueba!",

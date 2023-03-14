@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Subscription } from 'rxjs';
+import { LanguageModalService } from './language-modal.service';
 import { MenuBtnService } from './menu-btn.service';
 
 @Component({
@@ -13,13 +14,14 @@ import { MenuBtnService } from './menu-btn.service';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    constructor(private menuBtn: MenuBtnService, private router: Router, private translate: TranslateService) {
+    constructor(private menuBtn: MenuBtnService, private modalOpen: LanguageModalService, private router: Router, private translate: TranslateService) {
         translate.setDefaultLang('en');
     }
     title = 'Planet2050';
     sidebarOpen = false
 
     menuBtnSubscription!: Subscription
+    modalOpenSubscription!: Subscription
 
     ngOnInit() {
         this.languageForm = new FormGroup({
@@ -31,10 +33,17 @@ export class AppComponent {
             this.sidebarOpen = !this.sidebarOpen
             this.menuBtn.buttonState = this.sidebarOpen
         })
+        
+        this.modalOpenSubscription = this.modalOpen.getModalState().subscribe(() => {
+            this.showModal = !this.showModal
+            this.modalOpen.modalState = this.showModal
+        })
+
     }
 
     ngOnDestroy() {
         this.menuBtnSubscription.unsubscribe()
+        this.modalOpenSubscription.unsubscribe()
     }
 
     languageForm!: FormGroup
@@ -65,6 +74,11 @@ export class AppComponent {
     triggerSidebar() {
         this.menuBtn.buttonClicked.next(null)
     }
+
+    triggerModal() {
+        this.modalOpen.modalOpen.next(null)
+    }
+
     
     showModal = false
 }

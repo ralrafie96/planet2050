@@ -1,6 +1,36 @@
-<p>home-page works!</p>
+<div class="title-container">
+    <div class="title1">{{ 'HOME.WELCOME' | translate }}</div>
+    <div class="title2">Planet2050</div>
+</div>
 <div class="card-container">
-    <div class="card" [routerLink]="['/quiz']">{{ 'APP.SIDE2' | translate }}</div>
-    <div class="card" [routerLink]="['/trivia']">{{ 'APP.SIDE3' | translate }}</div>
-    <div class="card">{{ 'APP.SIDE4' | translate }}</div>
+    <div class="card" [routerLink]="['/quiz']">
+        <div class="card-content">
+            <div class="card-title">
+                {{ 'APP.SIDE2' | translate }}
+            </div>
+            <div class="card-description">
+                {{ 'HOME.DESC1' | translate }}
+            </div>
+        </div>
+    </div>
+    <div class="card" [routerLink]="['/trivia']">
+        <div class="card-content">
+            <div class="card-title">
+                {{ 'APP.SIDE3' | translate }}
+            </div>
+            <div class="card-description">
+                {{ 'HOME.DESC2' | translate }}
+            </div>
+        </div>
+    </div>
+    <div class="card" (click)="triggerModal()">
+        <div class="card-content">
+            <div class="card-title">
+                {{ 'APP.SIDE4' | translate }}
+            </div>
+            <div class="card-description">
+                {{ 'HOME.DESC3' | translate }}
+            </div>
+        </div>
+    </div>
 </div>

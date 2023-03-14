@@ -5,6 +5,12 @@
         "SIDE3": "TRIVIA",
         "SIDE4": "MULTILINGUAL"
     },
+    "HOME": {
+        "WELCOME": "Welcome to",
+        "DESC1": "Think you've got the skills? Take the Planet2050 Quiz to see how environmentally savvy you are!",
+        "DESC2": "Catch up on all the skills you need to know to keep our planet safe!",
+        "DESC3": "Change the application language to one you would be more familiar with!"
+    },
     "QUIZ": {
         "HOME1": "Take the",
         "HOME2": "Quiz!",
