@@ -8,6 +8,7 @@ export class MenuBtnService {
 
     constructor() { }
     buttonClicked = new Subject()
+    buttonState!: boolean
 
     getButtonClicked() {
         return this.buttonClicked.asObservable()

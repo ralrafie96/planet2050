@@ -29,6 +29,7 @@ export class AppComponent {
 
         this.menuBtnSubscription = this.menuBtn.getButtonClicked().subscribe(() => {
             this.sidebarOpen = !this.sidebarOpen
+            this.menuBtn.buttonState = this.sidebarOpen
         })
     }
 
@@ -45,7 +46,7 @@ export class AppComponent {
         localStorage.setItem('language', data.language)
         this.changeLang(data.language)
         this.showModal = false
-        location.reload()
+        // location.reload()
     }
 
     changeLang(lang: string | null) {

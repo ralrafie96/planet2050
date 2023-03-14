@@ -109,6 +109,13 @@
     bottom: 1rem;
 }
 
+.retry-btn, .retry-btn-disabled {
+    position: fixed;
+    left: 4rem;
+    bottom: 1rem;
+    transition: left 0.5s ease;
+}
+
 .nxt-btn-shifted, .nxt-btn-disabled-shifted {
     right: 20rem;
 }
@@ -121,10 +128,8 @@
     right: 14rem;
 }
 
-.retry-btn, .retry-btn-disabled {
-    position: fixed;
-    left: 4rem;
-    bottom: 1rem;
+.retry-btn-shifted, .retry-btn-disabled-shifted {
+    left: -6rem;
 }
 
 .btn-container {

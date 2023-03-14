@@ -25,7 +25,7 @@
         </div>
         <div class="btn-container">
             <!-- <button class="btn" type="submit">Submit</button> -->
-            <button type="button" [disabled]="!submitted" [ngClass]="{'retry-btn': submitted, 'retry-btn-disabled': !submitted}" (click)="refreshComponent()">{{ 'QUIZ.BUTTONS.RESET' | translate }}</button> <!-- (click)="reset(); submitted = !submitted" -->
+            <button type="button" [disabled]="!submitted" [ngClass]="{'retry-btn': submitted, 'retry-btn-disabled': !submitted, 'retry-btn-shifted': submitted && sidebarOpen, 'retry-btn-disabled-shifted': !submitted && sidebarOpen}" (click)="refreshComponent()">{{ 'QUIZ.BUTTONS.RESET' | translate }}</button> <!-- (click)="reset(); submitted = !submitted" -->
             <button type="button" [disabled]="disableNext" [ngClass]="{'nxt-btn': !disableNext, 'nxt-btn-disabled': disableNext, 'nxt-btn-shifted': !disableNext && sidebarOpen, 'nxt-btn-disabled-shifted': disableNext && sidebarOpen}" (click)="next()">{{ 'QUIZ.BUTTONS.NEXT' | translate }}</button>
             <button type="button" [disabled]="disablePrev" [ngClass]="{'prev-btn': !disablePrev, 'prev-btn-disabled': disablePrev, 'prev-btn-shifted': !disablePrev && sidebarOpen, 'prev-btn-disabled-shifted': disablePrev && sidebarOpen}" (click)="prev()">{{ 'QUIZ.BUTTONS.PREVIOUS' | translate }}</button>
             <button [disabled]="disableSubmit" [ngClass]="{'sub-btn': !disableSubmit, 'sub-btn-disabled': disableSubmit, 'sub-btn-shifted': !disableSubmit && sidebarOpen, 'sub-btn-disabled-shifted': disableSubmit && sidebarOpen}">{{ 'QUIZ.BUTTONS.SUBMIT' | translate }}</button>

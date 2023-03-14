@@ -1,9 +1,9 @@
 {
     "APP": {
-      "SIDE1": "HOME",
-      "SIDE2": "QUIZ",
-      "SIDE3": "TRIVIA",
-      "SIDE4": "MULTILINGUAL"
+        "SIDE1": "HOME",
+        "SIDE2": "QUIZ",
+        "SIDE3": "TRIVIA",
+        "SIDE4": "MULTILINGUAL"
     },
     "QUIZ": {
         "HOME1": "Take the",
@@ -19,6 +19,158 @@
             "PREVIOUS": "PREV",
             "NEXT": "NEXT",
             "SUBMIT": "SUBMIT"
-        }
+        },
+        "QUESTIONS": [
+            {
+                "question": "Which of the following is the main reason for producing the atmospheric greenhouse effect?",
+                "options": [
+                    "Absorption and re-emission of ultraviolet radiations by the atmosphere",
+                    "Absorption and re-emission of infrared radiations by the atmosphere",
+                    "Absorption and re-emission of visible light by the atmosphere",
+                    "None of the above"
+                ],
+                "answer": "Absorption and re-emission of infrared radiations by the atmosphere"
+            },
+            {
+                "question": "The salinization can be defined as -",
+                "options": [
+                    "Accumulation of salts in the body",
+                    "Accumulation of salts in water",
+                    "Accumulation of salts in animals",
+                    "Accumulation of salts in the soil"
+                ],
+                "answer": "Accumulation of salts in the soil"
+            },
+            {
+                "question": "The main reason for blueness of the sky is -",
+                "options": [
+                    "Due to the presence of water vapor",
+                    "Due to the absorption of blue light due to the air",
+                    "Due to the scattering of sunlight by air molecules",
+                    "None of the above"
+                ],
+                "answer": "Due to the scattering of sunlight by air molecules"
+            },
+            {
+                "question": "Which of the following is the cause of soil pollution?",
+                "options": [
+                    "Ozone",
+                    "Aerosol",
+                    "Acid rain",
+                    "None of the above"
+                ],
+                "answer": "Acid rain"
+            },
+            {
+                "question": "What is the water vapor?",
+                "options": [
+                    "It is the gaseous phase of water",
+                    "It is a rain droplet",
+                    "Water vapor is the cloud droplet",
+                    "None of the above"
+                ],
+                "answer": "It is the gaseous phase of water"
+            },
+            {
+                "question": "Which of the following is the cause of Melanornia (skin cancer)?",
+                "options": [
+                    "Acid rain",
+                    "Allergens",
+                    "Ozone depletion",
+                    "None of the above"
+                ],
+                "answer": "Ozone depletion"
+            },
+            {
+                "question": "The yellowness of the Taj Mahal is an effect of -",
+                "options": [
+                    "Acid rain",
+                    "Allergens",
+                    "Ozone depletion",
+                    "None of the above"
+                ],
+                "answer": "Acid rain"
+            },
+            {
+                "question": "The part of the plant that evaporates water is -",
+                "options": [
+                    "Fruit",
+                    "Stomata",
+                    "Root",
+                    "None of the above"
+                ],
+                "answer": "Stomata"
+            },
+            {
+                "question": "At what time of the day relative humidity in the environment is at minimum?",
+                "options": [
+                    "When the air temperature is lowest",
+                    "Before sunrise",
+                    "Midnight",
+                    "When the air temperature is higher"
+                ],
+                "answer": "When the air temperature is higher"
+            },
+            {
+                "question": "What is hibernation?",
+                "options": [
+                    "Winter sleep",
+                    "Summer sleep",
+                    "Adaptation of animals to escape from predators",
+                    "All of the above"
+                ],
+                "answer": "Winter sleep"
+            },
+            {
+                "question": "What is aestivation?",
+                "options": [
+                    "Winter sleep",
+                    "Summer sleep",
+                    "Adaptation of animals to escape from predators",
+                    "All of the above"
+                ],
+                "answer": "Summer sleep"
+            },
+            {
+                "question": "Which of the following gas is present in the air in maximum amount?",
+                "options": [
+                    "Nitrogen",
+                    "Oxygen",
+                    "Carbon dioxide",
+                    "Methane"
+                ],
+                "answer": "Nitrogen"
+            },
+            {
+                "question": "The solar cell converts which energy into electrical energy?",
+                "options": [
+                    "Chemical energy",
+                    "Solar energy",
+                    "Magnetic energy",
+                    "None of the above"
+                ],
+                "answer": "Solar energy"
+            },
+            {
+                "question": "Which of the following is a renewable source of energy?",
+                "options": [
+                    "Coal",
+                    "Uranium",
+                    "Wind",
+                    "None of the above"
+                ],
+                "answer": "Wind"
+            },
+            {
+                "question": "The process of changing the solid into a liquid by supplying the heat is called as -",
+                "options": [
+                    "Melting",
+                    "Evaporation",
+                    "Boiling",
+                    "Condensation"
+                ],
+                "answer": "Melting"
+            }
+        ]
     }
 }
