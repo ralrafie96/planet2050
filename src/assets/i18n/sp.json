@@ -1,0 +1,24 @@
+{
+    "APP": {
+      "SIDE1": "HOGAR",
+      "SIDE2": "PRUEBA",
+      "SIDE3": "TRIVIALIDADES",
+      "SIDE4": "MÚLTIPLES IDIOMAS"
+    },
+    "QUIZ": {
+        "HOME1": "Haz la",
+        "HOME2": "Prueba!",
+        "SCORE": "Has anotado: ",
+        "TITLE": "Te has ganado el título de: ",
+        "CAPTAIN EARTH": "Capitan Tierra",
+        "GEO-FORCE": "Geo-Fuerza",
+        "PLANETEER": "Planeteer",
+        "BUTTONS": {
+            "START": "COMENZAR",
+            "RESET": "REINICIAR",
+            "PREVIOUS": "ANTERIOR",
+            "NEXT": "PRÓXIMO",
+            "SUBMIT": "ENTREGAR"
+        }
+    }
+}

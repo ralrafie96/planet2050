@@ -1,0 +1,192 @@
+.form {
+    overflow: hidden !important;
+}
+
+.quiz-container {
+    display: flex;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: calc(11 * 100%);
+    height: 100%;
+}
+
+.card, .card-xs {
+    border-radius: 3px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+    min-width: 5rem;
+    min-height: 2rem;
+    height: calc(100% - 18rem);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    transition-duration: 0.2s;
+    transition-property: all;
+    margin: 6rem;
+    padding: 3rem;
+    position: relative;
+}
+
+.card-xs {
+    width: 20rem;
+    height: 15rem;
+}
+
+.question, .answer {
+    margin: 1rem;
+    font-size: 32px;
+}
+
+.question {
+    font-weight: bold;
+    margin: 2rem 0rem 3rem 0rem;
+}
+
+.answer-box {
+    font-size: 24px;
+}
+
+.answer {
+    margin: 1rem;
+    font-size: 24px;
+}
+
+.answer-container {
+    display: flex;
+}
+
+
+.btn, .nxt-btn, .prev-btn, .sub-btn, .retry-btn, .nxt-btn-disabled, .prev-btn-disabled, .sub-btn-disabled, .retry-btn-disabled, .btn-disabled {
+    border-radius: 3px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    font-weight: bold;
+    min-width: 5rem;
+    min-height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #7e7a7a;
+    border: 1px solid #7e7a7a;
+    background-color: #c9c3c3;
+    transition-duration: 0.2s;
+    transition-property: all;
+    margin: 2rem;
+    transition: right 0.5s ease;
+}
+
+.btn, .nxt-btn, .prev-btn, .sub-btn, .retry-btn {
+    color: #d42e12;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+}
+
+.btn:hover, .nxt-btn:hover, .prev-btn:hover, .sub-btn:hover, .retry-btn:hover {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid #d42e12;
+    color: #fafafa;
+    background-color: #d42e12;
+}
+
+.nxt-btn, .nxt-btn-disabled {
+    position: fixed;
+    right: 10rem;
+    bottom: 1rem;
+}
+
+.prev-btn, .prev-btn-disabled {
+    position: fixed;
+    right: 16rem;
+    bottom: 1rem;
+}
+
+.sub-btn, .sub-btn-disabled {
+    position: fixed;
+    right: 4rem;
+    bottom: 1rem;
+}
+
+.nxt-btn-shifted, .nxt-btn-disabled-shifted {
+    right: 20rem;
+}
+
+.prev-btn-shifted, .prev-btn-disabled-shifted {
+    right: 26rem;
+}
+
+.sub-btn-shifted, .sub-btn-disabled-shifted {
+    right: 14rem;
+}
+
+.retry-btn, .retry-btn-disabled {
+    position: fixed;
+    left: 4rem;
+    bottom: 1rem;
+}
+
+.btn-container {
+    display: flex
+}
+
+.btn-disabled {
+    color: #7e7a7a;
+    border: 1px solid #7e7a7a;
+    background-color: #c9c3c3;
+    pointer-events: none;
+}
+
+.separator {
+    position: absolute;
+    right: -6rem;
+}
+
+.medal {
+    width: 6rem;
+    height: 9rem;
+}
+
+.modal-off, .modal-on {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-on {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-content {
+background-color: #fefefe;
+margin: 15% auto;
+padding: 20px;
+border: 1px solid #888;
+width: 40%;
+border-radius: 10px;
+}
+
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}

@@ -1,0 +1,75 @@
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.card {
+    border-radius: 3px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    font-weight: bold;
+    min-height: 10em;
+    min-width: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d42e12;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    transition-duration: 0.2s;
+    transition-property: all;
+    margin: 2rem;
+}
+.card:hover {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid #d42e12;
+    color: #fafafa;
+    background-color: #d42e12;
+}
+
+.content {
+    margin: 5px;
+    background-color: inherit;
+}
+
+.modal-off, .modal-on {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-on {
+      display: block
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }

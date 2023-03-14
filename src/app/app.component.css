@@ -1,0 +1,111 @@
+* {
+    font-family: Raleway /* Replace with your custom font */, sans-serif !important; 
+    /* Add !important to overwrite all elements */
+  }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.root {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+.screen, .screenOpen {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: tomato;
+    z-index: 1;
+    position: absolute;
+    left: 0rem;
+    transition: left 0.5s ease;
+}
+
+.screenOpen {
+    left: -10rem;
+}
+
+.menu-btn, .menu-btn-open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-width: 0px;
+    border-radius: 50%;
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    transition: right 0.5s ease;
+}
+
+.menu-btn-open {
+    right: 12rem;
+}
+
+.sidebar {
+    width: 10rem;
+    height: 100%;
+    background-color: turquoise;
+    z-index: 0;
+    position: absolute;
+    right: 0px;
+}
+
+.sidebar-item {
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-item:hover {
+    cursor: pointer;
+}
+
+.modal-off, .modal-on {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-on {
+    display: block
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

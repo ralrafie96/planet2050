@@ -1,0 +1,24 @@
+{
+    "APP": {
+      "SIDE1": "HOME",
+      "SIDE2": "QUIZ",
+      "SIDE3": "TRIVIA",
+      "SIDE4": "MULTILINGUAL"
+    },
+    "QUIZ": {
+        "HOME1": "Take the",
+        "HOME2": "Quiz!",
+        "SCORE": "You Scored: ",
+        "TITLE": "You've earned the title of: ",
+        "CAPTAIN EARTH": "Captain Earth",
+        "GEO-FORCE": "Geo-Force",
+        "PLANETEER": "Planeteer",
+        "BUTTONS": {
+            "START": "START",
+            "RESET": "RESET",
+            "PREVIOUS": "PREV",
+            "NEXT": "NEXT",
+            "SUBMIT": "SUBMIT"
+        }
+    }
+}
