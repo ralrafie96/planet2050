@@ -13,12 +13,9 @@
 
 .title {
     position: relative;
-    left: 3rem;
-    bottom: 1rem;
     font-size: 7rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
-    /* color: rgb(232, 231, 227); */
     color: transparent;
     background: rgb(9,9,121);
     background: linear-gradient(45deg, #1c4966 34%, rgba(64,110,63,1) 63%);
@@ -54,28 +51,46 @@
     position: relative;
 }
 
+.title-card {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .card-xs {
     width: 20rem;
     height: 15rem;
 }
 
-.question, .answer {
+.question, .answer, .answer-wrong, .answer-right {
     margin: 1rem;
-    font-size: 32px;
+    font-size: 3rem;
 }
 
 .question {
-    font-weight: bold;
-    margin: 2rem 0rem 3rem 0rem;
+    position: relative;
+    font-size: 3rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(64, 110, 63);
+    -webkit-text-stroke: 1px solid rgb(38, 61, 41);
 }
 
 .answer-box {
     font-size: 24px;
 }
 
-.answer {
+.answer, .answer-wrong, .answer-right {
     margin: 1rem;
     font-size: 24px;
+}
+
+.answer-right {
+    color:green;
+    font-weight: bold;
+}
+
+.answer-wrong {
+    color: red;
 }
 
 .answer-container {
@@ -88,6 +103,16 @@
     position: fixed;
     left: 6rem;
     top: 4rem;
+    transition: left 0.5s ease;
+}
+
+.points-shifted {
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: fixed;
+    left: -7rem;
+    top: 4rem;
+    transition: left 0.5s ease;
 }
 
 .timer {
@@ -95,6 +120,15 @@
     position: fixed;
     right: 6rem;
     top: 4rem;
+    transition: right 0.5s ease;
+}
+
+.timer-shifted {
+    font-size: 1.5rem;
+    position: fixed;
+    top: 4rem;
+    right: 19rem;
+    transition: right 0.5s ease;
 }
 
 .btn, .nxt-btn, .prev-btn, .sub-btn, .retry-btn, .nxt-btn-disabled, .prev-btn-disabled, .sub-btn-disabled, .retry-btn-disabled, .btn-disabled {
@@ -104,7 +138,6 @@
     font-weight: bold;
     min-width: 5rem;
     min-height: 2rem;
-    display: flex;
     justify-content: center;
     align-items: center;
     color: #7e7a7a;
@@ -113,7 +146,7 @@
     transition-duration: 0.2s;
     transition-property: all;
     margin: 2rem;
-    transition: right 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .btn, .nxt-btn, .prev-btn, .sub-btn, .retry-btn {

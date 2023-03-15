@@ -2,39 +2,37 @@
     <form class="form" [formGroup]="quizForm" (ngSubmit)="submitClicked(quizForm.value)">
         <div class="quiz-container">
             <div class="card">
-                <div class="question">{{ 'QUIZ.HOME1' | translate }}</div>
-                <div class="title">Planet2050</div>
-                <div class="question">{{ 'QUIZ.HOME2' | translate }}</div>
-                <button type="button" class="btn" (click)="start()">{{ 'QUIZ.BUTTONS.START' | translate }}</button>
+                <div class="title-card">
+                    <div class="question">{{ 'QUIZ.HOME1' | translate }}</div>
+                    <div class="title">Planet2050</div>
+                    <div class="question">{{ 'QUIZ.HOME2' | translate }}</div>
+                    <button type="button" class="btn" (click)="start()">{{ 'QUIZ.BUTTONS.START' | translate }}</button>
+                </div>
             </div>
             <div id="separator0" class="separator" ></div>
             <div *ngFor="let q of questions; let i = index" class="card">
-            <!-- <div *ngFor="let q of {{ 'QUIZ.QUESTIONS' | translate }}; let i = index" class="card"> -->
                 <div class="question">{{i + 1}}: {{q.question}}</div>
                 <div class="answer-container">
                     <div>
                         <div class="answer-container" *ngFor="let a of questions[i].options">
-                            <input class="answer-box" id="q{{i + 1}}" name="q{{i + 1}}" formControlName="q{{i + 1}}" type="radio" value="{{a}}"><p class="answer"> {{a}}</p>
+                            <input class="answer-box" id="q{{i + 1}}" name="q{{i + 1}}" formControlName="q{{i + 1}}" type="radio" value="{{a}}"><p [ngClass]="{'answer': !submitWasClicked, 'answer-wrong': submitWasClicked && a != q.answer, 'answer-right': submitWasClicked && a == q.answer}"> {{a}}</p>
                         </div>
                     </div>
-                    <!-- <button class="nxt-btn">Next</button> -->
                 </div>
-                <!-- <button class="nxt-btn">Next</button> -->
                 <div id="separator{{i + 1}}" class="separator" ></div>
             </div>
         </div>
         <div class="btn-container">
-            <!-- <button class="btn" type="submit">Submit</button> -->
-            <div class="points">
+            <div [ngClass]="{'points': !sidebarOpen, 'points-shifted': sidebarOpen}">
                 Points: {{ points }}
             </div>
-            <div class="timer">
+            <div [ngClass]="{'timer': !sidebarOpen, 'timer-shifted': sidebarOpen}">
                 {{ timer * 1000 | date: 'mm:ss' }}
             </div>
             <button type="button" [disabled]="!submitted" [ngClass]="{'retry-btn': submitted, 'retry-btn-disabled': !submitted, 'retry-btn-shifted': submitted && sidebarOpen, 'retry-btn-disabled-shifted': !submitted && sidebarOpen}" (click)="refreshComponent()">{{ 'QUIZ.BUTTONS.RESET' | translate }}</button> <!-- (click)="reset(); submitted = !submitted" -->
             <button type="button" [disabled]="disableNext" [ngClass]="{'nxt-btn': !disableNext, 'nxt-btn-disabled': disableNext, 'nxt-btn-shifted': !disableNext && sidebarOpen, 'nxt-btn-disabled-shifted': disableNext && sidebarOpen}" (click)="next()">{{ 'QUIZ.BUTTONS.NEXT' | translate }}</button>
             <button type="button" [disabled]="disablePrev" [ngClass]="{'prev-btn': !disablePrev, 'prev-btn-disabled': disablePrev, 'prev-btn-shifted': !disablePrev && sidebarOpen, 'prev-btn-disabled-shifted': disablePrev && sidebarOpen}" (click)="prev()">{{ 'QUIZ.BUTTONS.PREVIOUS' | translate }}</button>
-            <button [disabled]="disableSubmit" [ngClass]="{'sub-btn': !disableSubmit, 'sub-btn-disabled': disableSubmit, 'sub-btn-shifted': !disableSubmit && sidebarOpen, 'sub-btn-disabled-shifted': disableSubmit && sidebarOpen}">{{ 'QUIZ.BUTTONS.SUBMIT' | translate }}</button>
+            <button [disabled]="disableSubmit" [ngClass]="{'sub-btn': !disableSubmit, 'sub-btn-disabled': disableSubmit, 'sub-btn-shifted': !disableSubmit && sidebarOpen, 'sub-btn-disabled-shifted': disableSubmit && sidebarOpen}" (click)="submitWasClicked = !submitWasClicked">{{ 'QUIZ.BUTTONS.SUBMIT' | translate }}</button>
         </div>
         <div *ngIf="submitted" [ngClass]="{'modal-on': showModal, 'modal-off': !showModal}">
             <div class="modal-content">

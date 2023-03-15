@@ -49,6 +49,7 @@ export class QuizPageComponent implements OnInit {
         this.menuBtnSub.unsubscribe()
     }
 
+    submitWasClicked = false
     private destroy$ = new Subject();
     points = 0
     timer = 0
@@ -116,7 +117,16 @@ export class QuizPageComponent implements OnInit {
         clearInterval(this.interval)
     }
 
+    checkAnswer(question: string, answer: string) {
+        // if (this.submitted) {
+        console.log(question)
+        console.log(answer)
+        // }
+        return true
+    }
+
     submitClicked(data: any) {
+        console.log(this.submitted)
         this.pauseTimer()
         console.log("data: " + data)
         console.log("data questions: " + data['q' + (this.currentQ)])
@@ -176,6 +186,7 @@ export class QuizPageComponent implements OnInit {
     }
 
     next() {
+        this.submitWasClicked = false
         this.startTimer()
         this.currentQ = this.currentQ + 1
         document.getElementById("separator" + this.currentQ)?.scrollIntoView({ behavior: "smooth", inline: "end" })
