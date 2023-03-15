@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Subject, Subscription } from 'rxjs';
-import {Router, NavigationEnd, ActivatedRoute} from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { MenuBtnService } from '../menu-btn.service';
 
@@ -28,7 +28,7 @@ export class QuizPageComponent implements OnInit {
             q9: new FormControl(null),
             q10: new FormControl(null),
         })
-        
+
         this.sidebarOpen = this.menuBtn.buttonState
         this.menuBtnSub = this.menuBtn.getButtonClicked().subscribe(() => {
             this.sidebarOpen = this.menuBtn.buttonState
@@ -41,7 +41,7 @@ export class QuizPageComponent implements OnInit {
         })
     }
 
-    ngOnDestroy(){
+    ngOnDestroy() {
         // this.destroy$.
         // this.destroy$.complete(); 
         this.quizFormSub.unsubscribe()
@@ -50,6 +50,9 @@ export class QuizPageComponent implements OnInit {
     }
 
     private destroy$ = new Subject();
+    points = 0
+    timer = 0
+    interval!: any
     menuBtnSub!: Subscription
     quizFormSub!: Subscription
     quizQuestionSub!: Subscription
@@ -73,13 +76,18 @@ export class QuizPageComponent implements OnInit {
         this.chooseQuestions(10, this.bankOfQuestions)
         this.quizFormSub = this.quizForm.valueChanges.subscribe(data => { // try takeUntil(this.destroy$)
             let check = false
-            console.log(data)
-            for (let key in data) {
-                if (data[key] == null) {
-                    check = true
-                }
+            // console.log(data)
+            // console.log(data["q" + this.currentQ])
+            // console.log(this.questions)
+            if (!!data["q" + this.currentQ]) {
+                this.disableSubmit = false
             }
-            this.disableSubmit = check
+            // for (let key in data) {
+            //     if (data[key] == null) {
+            //         check = true
+            //     }
+            // }
+            // this.disableSubmit = check
         });
     }
 
@@ -88,7 +96,7 @@ export class QuizPageComponent implements OnInit {
             len = arr.length,
             taken = new Array(len);
         if (n > len)
-            throw new RangeError("getRandom: more elements taken than available");
+            throw new RangeError("chooseQuestions: more elements taken than available");
         while (n--) {
             var x = Math.floor(Math.random() * len);
             result[n] = arr[x in taken ? taken[x] : x];
@@ -97,39 +105,61 @@ export class QuizPageComponent implements OnInit {
         this.questions = result
     }
 
+    startTimer() {
+        this.timer = 0
+        this.interval = setInterval(() => {
+            this.timer++
+        }, 1000)
+    }
+
+    pauseTimer() {
+        clearInterval(this.interval)
+    }
+
     submitClicked(data: any) {
-        console.log(data)
-        this.numOfQuestions = 0
-        this.numCorrect = 0
-        for (let i in this.questions) {
-            this.numOfQuestions++
-            for (let j in data) {
-                console.log(j)
-                console.log("q" + (Number(i) + 1))
-                if ("q" + (Number(i) + 1) == j && this.questions[i].answer == data[j]) {
-                    this.numCorrect++
-                }
+        this.pauseTimer()
+        console.log("data: " + data)
+        console.log("data questions: " + data['q' + (this.currentQ)])
+        console.log("questions: " + this.questions[this.currentQ - 1].answer)
+        if (data['q' + (this.currentQ)] == this.questions[this.currentQ - 1].answer) {
+            if (this.timer <= 10) {
+                this.points += 10
+            } else if (this.timer <= 20) {
+                this.points += 7
+            } else if (this.timer < 30) {
+                this.points += 5
             }
         }
-        console.log(this.numCorrect)
-        console.log(this.numOfQuestions)
-        this.score = (this.numCorrect / this.numOfQuestions) * 100
-        if (this.score >= 80) {
-            this.title = this.translate.instant('QUIZ.CAPTAIN EARTH')
-            this.medal = "gold"
-        } else if (this.score >= 50 && this.score < 80) {
-            this.title = this.translate.instant('QUIZ.GEO-FORCE')
-            this.medal = "silver"
+        // for (let i in this.questions) {
+        //     for (let j in data) {
+        //         if ("q" + (Number(i) + 1) == j && this.questions[i].answer == data[j]) {
+        //             this.numCorrect++
+        //         }
+        //     }
+        // }
+
+        if (this.currentQ == this.questions.length) {
+            this.score = this.points
+            if (this.score >= 80) {
+                this.title = this.translate.instant('QUIZ.CAPTAIN EARTH')
+                this.medal = "gold"
+            } else if (this.score >= 50 && this.score < 80) {
+                this.title = this.translate.instant('QUIZ.GEO-FORCE')
+                this.medal = "silver"
+            } else {
+                this.title = this.translate.instant('QUIZ.PLANETEER')
+                this.medal = "bronze"
+            }
+            this.submitted = true
+            this.showModal = true
+            
         } else {
-            this.title = this.translate.instant('QUIZ.PLANETEER')
-            this.medal = "bronze"
+            this.disableNext = false
         }
-        this.submitted = true
-        this.showModal = true
+        this.disableSubmit = true
     }
 
     start() {
-        this.disableNext = false
         this.currentQ = 0
         this.next()
     }
@@ -143,18 +173,20 @@ export class QuizPageComponent implements OnInit {
     refreshComponent() {
         // this.router.navigate([this.router.url])
         location.reload()
-     }
+    }
 
     next() {
+        this.startTimer()
         this.currentQ = this.currentQ + 1
         document.getElementById("separator" + this.currentQ)?.scrollIntoView({ behavior: "smooth", inline: "end" })
-        this.validateBtns()
+        this.disableNext = true
+        // this.validateBtns()
     }
 
     prev() {
         this.currentQ = this.currentQ - 1
         document.getElementById("separator" + this.currentQ)?.scrollIntoView({ behavior: "smooth", inline: "end" })
-        this.validateBtns()
+        // this.validateBtns()
     }
 
     validateBtns() {

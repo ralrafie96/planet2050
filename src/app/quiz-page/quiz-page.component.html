@@ -25,6 +25,12 @@
         </div>
         <div class="btn-container">
             <!-- <button class="btn" type="submit">Submit</button> -->
+            <div class="points">
+                Points: {{ points }}
+            </div>
+            <div class="timer">
+                {{ timer * 1000 | date: 'mm:ss' }}
+            </div>
             <button type="button" [disabled]="!submitted" [ngClass]="{'retry-btn': submitted, 'retry-btn-disabled': !submitted, 'retry-btn-shifted': submitted && sidebarOpen, 'retry-btn-disabled-shifted': !submitted && sidebarOpen}" (click)="refreshComponent()">{{ 'QUIZ.BUTTONS.RESET' | translate }}</button> <!-- (click)="reset(); submitted = !submitted" -->
             <button type="button" [disabled]="disableNext" [ngClass]="{'nxt-btn': !disableNext, 'nxt-btn-disabled': disableNext, 'nxt-btn-shifted': !disableNext && sidebarOpen, 'nxt-btn-disabled-shifted': disableNext && sidebarOpen}" (click)="next()">{{ 'QUIZ.BUTTONS.NEXT' | translate }}</button>
             <button type="button" [disabled]="disablePrev" [ngClass]="{'prev-btn': !disablePrev, 'prev-btn-disabled': disablePrev, 'prev-btn-shifted': !disablePrev && sidebarOpen, 'prev-btn-disabled-shifted': disablePrev && sidebarOpen}" (click)="prev()">{{ 'QUIZ.BUTTONS.PREVIOUS' | translate }}</button>

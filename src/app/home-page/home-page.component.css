@@ -72,6 +72,7 @@
 }
 
 .card {
+    position: relative;
     border-radius: 3px;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
@@ -88,6 +89,22 @@
     transition-duration: 0.5s;
     transition-property: all;
     margin: 2rem;
+    animation: cardAnimation1 2.0s;
+}
+
+@keyframes cardAnimation1 {
+    0% {
+        top: -4rem;
+        opacity: 0%;
+    }
+    66% {
+        top: -4rem;
+        opacity: 0%;
+    }
+    100% {
+        top: 0rem;
+        opacity: 100%
+    }
 }
 
 .card-title {
@@ -118,7 +135,7 @@
 }
 
 .card:hover .card-content .card-title {
-    bottom: 3rem;
+    bottom: 2.5rem;
 }
 
 .card:hover {

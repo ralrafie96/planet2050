@@ -82,6 +82,20 @@
     display: flex;
 }
 
+.points {
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: fixed;
+    left: 6rem;
+    top: 4rem;
+}
+
+.timer {
+    font-size: 1.5rem;
+    position: fixed;
+    right: 6rem;
+    top: 4rem;
+}
 
 .btn, .nxt-btn, .prev-btn, .sub-btn, .retry-btn, .nxt-btn-disabled, .prev-btn-disabled, .sub-btn-disabled, .retry-btn-disabled, .btn-disabled {
     border-radius: 3px;
