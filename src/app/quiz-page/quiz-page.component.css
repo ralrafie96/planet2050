@@ -2,6 +2,10 @@
     overflow: hidden !important;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .quiz-container {
     display: flex;
     position: absolute;
@@ -13,7 +17,7 @@
 
 .title {
     position: relative;
-    font-size: 7rem;
+    font-size: 4rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
     color: transparent;
@@ -33,11 +37,12 @@
 }
 
 .card, .card-xs {
+    overflow-y: auto;
     border-radius: 3px;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
     min-width: 5rem;
     min-height: 2rem;
-    height: calc(100% - 18rem);
+    height: calc(100% - 20rem);
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -46,7 +51,7 @@
     background-color: #fafafa;
     transition-duration: 0.2s;
     transition-property: all;
-    margin: 6rem;
+    margin: 6rem 3rem;
     padding: 3rem;
     position: relative;
 }
@@ -64,24 +69,24 @@
 
 .question, .answer, .answer-wrong, .answer-right {
     margin: 1rem;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .question {
     position: relative;
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:rgb(64, 110, 63);
     -webkit-text-stroke: 1px solid rgb(38, 61, 41);
 }
 
 .answer-box {
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .answer, .answer-wrong, .answer-right {
     margin: 1rem;
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .answer-right {
@@ -101,7 +106,7 @@
     font-weight: bold;
     font-size: 1.5rem;
     position: fixed;
-    left: 6rem;
+    left: 3rem;
     top: 4rem;
     transition: left 0.5s ease;
 }
@@ -110,7 +115,7 @@
     font-weight: bold;
     font-size: 1.5rem;
     position: fixed;
-    left: -7rem;
+    left: -10rem;
     top: 4rem;
     transition: left 0.5s ease;
 }
@@ -118,7 +123,7 @@
 .timer {
     font-size: 1.5rem;
     position: fixed;
-    right: 6rem;
+    right: 3rem;
     top: 4rem;
     transition: right 0.5s ease;
 }
@@ -127,7 +132,7 @@
     font-size: 1.5rem;
     position: fixed;
     top: 4rem;
-    right: 19rem;
+    right: 16rem;
     transition: right 0.5s ease;
 }
 
@@ -165,43 +170,43 @@
 
 .nxt-btn, .nxt-btn-disabled {
     position: fixed;
-    right: 10rem;
-    bottom: 1rem;
+    right: 7rem;
+    bottom: 3rem;
 }
 
 .prev-btn, .prev-btn-disabled {
     position: fixed;
-    right: 16rem;
-    bottom: 1rem;
+    right: 13rem;
+    bottom: 3rem;
 }
 
 .sub-btn, .sub-btn-disabled {
     position: fixed;
-    right: 4rem;
-    bottom: 1rem;
+    right: 1rem;
+    bottom: 3rem;
 }
 
 .retry-btn, .retry-btn-disabled {
     position: fixed;
-    left: 4rem;
-    bottom: 1rem;
+    left: 1rem;
+    bottom: 3rem;
     transition: left 0.5s ease;
 }
 
 .nxt-btn-shifted, .nxt-btn-disabled-shifted {
-    right: 23rem;
+    right: 20rem;
 }
 
 .prev-btn-shifted, .prev-btn-disabled-shifted {
-    right: 29rem;
+    right: 26rem;
 }
 
 .sub-btn-shifted, .sub-btn-disabled-shifted {
-    right: 17rem;
+    right: 14rem;
 }
 
 .retry-btn-shifted, .retry-btn-disabled-shifted {
-    left: -9rem;
+    left: -12rem;
 }
 
 .btn-container {
@@ -217,7 +222,7 @@
 
 .separator {
     position: absolute;
-    right: -6rem;
+    right: -3rem;
 }
 
 .medal {
@@ -248,7 +253,7 @@
 .modal-content {
 background-color: #fefefe;
 margin: 15% auto;
-padding: 20px;
+padding: 0rem;
 border: 1px solid #888;
 width: 40%;
 border-radius: 10px;
