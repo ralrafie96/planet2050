@@ -4,27 +4,61 @@ const http = require("http")
 // const bodyParser = require("body-parser");
 const nodeMailer = require("nodemailer");
 
+const { Client } = require("pg")
+const dotenv = require("dotenv")
+dotenv.config()
 // const app = express();
 // app.use(cors({ origin: "*" }));
 // app.use(bodyParser.json());
 
+const connectDb = async () => {
+    try {
+        const client = new Client({
+            user: process.env.PGUSER,
+            host: process.env.PGHOST,
+            database: process.env.PGDATABASE,
+            password: process.env.PGPASSWORD,
+            port: process.env.PGPORT
+        })
+
+        await client.connect()
+        const res = await client.query('SELECT * FROM planet2050_high_scores')
+        console.log(res.rows)
+        await client.end()
+        return res.rows
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 const port = 3000
 const app = http.createServer((req, res) => {
+
     const { headers, method, url } = req;
+    // Pull out request body
+    let body = [];
+    req.on('error', (err) => {
+        console.error(err)
+    }).on('data', (chunk) => {
+        console.log(chunk)
+        body.push(chunk)
+    }).on('end', async () => {
+        body = Buffer.concat(body).toString();
+        console.log(body)
 
-    console.log("The server started on port " + port)
-    if (method == "POST" && url == "/sendmail") {
-        // Pull out request body
-        let body = [];
-        req.on('error', (err) => {
-            console.error(err)
-        }).on('data', (chunk) => {
-            console.log(chunk)
-            body.push(chunk)
-        }).on('end', () => {
-            body = Buffer.concat(body).toString();
-            console.log(body)
+        if (method == "GET" && url == "/highscores") {
+            let results = {}
+            results = await connectDb()
+            res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200')
+            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
+            res.write(JSON.stringify(results))
+            res.end()
+        }
+        if (method == "POST" && url == "/highscores") {
 
+        }
+        if (method == "POST" && url == "/sendmail") {
             // Send email and response
             sendMail(body, (err, info) => {
                 if (err) {
@@ -37,8 +71,8 @@ const app = http.createServer((req, res) => {
                 }
                 res.end()
             })
-        })
-    }
+        }
+    })
 }).listen(port);
 
 // app.listen(port, () => {

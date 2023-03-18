@@ -4,6 +4,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { MenuBtnService } from '../menu-btn.service';
+import { QuiztableService } from '../quiztable.service';
 
 @Component({
     selector: 'app-quiz-page',
@@ -12,10 +13,11 @@ import { MenuBtnService } from '../menu-btn.service';
 })
 export class QuizPageComponent implements OnInit {
 
-    constructor(private menuBtn: MenuBtnService, private translate: TranslateService) {
+    constructor(private menuBtn: MenuBtnService, private translate: TranslateService, private quizTable: QuiztableService) {
     }
 
     ngOnInit(): void {
+        this.getHighScoreTables()
         this.quizForm = new FormGroup({
             q1: new FormControl(null),
             q2: new FormControl(null),
@@ -72,6 +74,12 @@ export class QuizPageComponent implements OnInit {
     submitted = false
     questions: any[] = []
     bankOfQuestions!: any[]
+
+    getHighScoreTables() {
+        this.quizTable.getTable().subscribe((data) => {
+            console.log(data)
+        })
+    }
 
     refreshQuestions() {
         this.chooseQuestions(10, this.bankOfQuestions)
@@ -149,6 +157,7 @@ export class QuizPageComponent implements OnInit {
         // }
 
         if (this.currentQ == this.questions.length) {
+            this.getHighScoreTables()
             this.score = this.points
             if (this.score >= 80) {
                 this.title = this.translate.instant('QUIZ.CAPTAIN EARTH')
