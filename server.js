@@ -11,7 +11,7 @@ dotenv.config()
 // app.use(cors({ origin: "*" }));
 // app.use(bodyParser.json());
 
-const connectDb = async () => {
+const connectDb = async (query) => {
     try {
         const client = new Client({
             user: process.env.PGUSER,
@@ -22,10 +22,9 @@ const connectDb = async () => {
         })
 
         await client.connect()
-        const res = await client.query('SELECT * FROM planet2050_high_scores')
-        console.log(res.rows)
+        const res = await client.query(query)
         await client.end()
-        return res.rows
+        return res
     } catch (err) {
         console.log(err)
     }
@@ -48,15 +47,16 @@ const app = http.createServer((req, res) => {
 
         if (method == "GET" && url == "/highscores") {
             let results = {}
-            results = await connectDb()
+            results = await connectDb("SELECT * FROM planet2050_high_scores")
             res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200')
             res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
             res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
-            res.write(JSON.stringify(results))
+            res.write(JSON.stringify(results.rows))
             res.end()
         }
         if (method == "POST" && url == "/highscores") {
-
+            let results = {}
+            retults = await connectDb("INSERT INTO planet2050_high_scores (lastname, firstname, score) values ('Al-Rafie', 'Rami', 100)")
         }
         if (method == "POST" && url == "/sendmail") {
             // Send email and response
