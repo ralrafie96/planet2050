@@ -1,15 +1,9 @@
-// const express = require("express");
 const http = require("http")
-// const cors = require("cors");
-// const bodyParser = require("body-parser");
 const nodeMailer = require("nodemailer");
 
 const { Client } = require("pg")
 const dotenv = require("dotenv")
 dotenv.config()
-// const app = express();
-// app.use(cors({ origin: "*" }));
-// app.use(bodyParser.json());
 
 const connectDb = async (query) => {
     try {
